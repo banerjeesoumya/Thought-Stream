@@ -7,10 +7,10 @@ export const signupSchema = z.object({
     password: z.string().min(8, {
         message: "Passwords should be 8 characters long"
     }),
-    name: z.string()
+    fullname: z.string()
 })
 
-export type signupSchema = z.infer<typeof signupSchema>
+export type SignUpSchema = z.infer<typeof signupSchema>
 
 export const signinSchema = z.object({
     email: z.string().email({

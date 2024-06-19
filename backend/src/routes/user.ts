@@ -44,7 +44,7 @@ userRouter.post("/signup", async (c) => {
                 data: {
                     email: body.email,
                     password: body.password,
-                    name: body.name
+                    name: body.fullname
                 }
             })
     
@@ -55,7 +55,8 @@ userRouter.post("/signup", async (c) => {
             c.status(200)
             return c.json({
                 message: "User signup successfull",
-                token: token
+                token: token,
+                name : user.name  
             });
         }
 
@@ -103,7 +104,8 @@ userRouter.post('/signin', async (c) => {
       c.status(200);
       return c.json({
         message : "Signed in successfully",
-        token : token
+        token : token,
+        name: user.name
       })
     } catch (e) {
       c.status(400);

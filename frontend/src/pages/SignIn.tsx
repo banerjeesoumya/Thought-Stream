@@ -2,7 +2,7 @@ import { Auth } from "../component/Auth";
 import { Quote } from "../component/Quote";
 
 export const SignIn = () => {
-    // Remove items from localStorage
+
     localStorage.removeItem("SignInToken");
     localStorage.removeItem("SignInToken");
     localStorage.removeItem("Name");

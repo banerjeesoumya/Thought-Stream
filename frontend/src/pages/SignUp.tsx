@@ -3,6 +3,11 @@ import { Quote } from "../component/Quote"
 
 
 export const SignUp = () => {
+
+    localStorage.removeItem("SignInToken");
+    localStorage.removeItem("SignInToken");
+    localStorage.removeItem("Name");
+    
     return(
         <div>
             <div className="grid grid-cols-1 lg:grid-cols-2">

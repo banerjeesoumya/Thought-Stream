@@ -62,7 +62,7 @@ export const Auth = ({ type }: { type: "signup" | "signin" }) => {
                             <LabelledInput
                                 id="name"
                                 title="Name"
-                                placeholder="Soumya Banerjee..."
+                                placeholder="Your full name"
                                 onChange={(e) => {
                                     setPostInputs({
                                         ...postInputs,
@@ -73,8 +73,8 @@ export const Auth = ({ type }: { type: "signup" | "signin" }) => {
                         )}
                         <LabelledInput
                             id="email"
-                            title="Username"
-                            placeholder="something@gmail.com"
+                            title="Username/Email"
+                            placeholder="xyz@gmail.com"
                             onChange={(e) => {
                                 setPostInputs({
                                     ...postInputs,
@@ -86,7 +86,7 @@ export const Auth = ({ type }: { type: "signup" | "signin" }) => {
                             id="password"
                             title="Password"
                             type="password"
-                            placeholder="Soumya Banerjee..."
+                            placeholder="Minimum 8 characters long"
                             onChange={(e) => {
                                 setPostInputs({
                                     ...postInputs,

@@ -17,6 +17,7 @@ export interface Blog {
 export const useBlog = ({ id } : { id : string }) => {
     const [loading, setLoading] = useState(true);
     const [blog, setBlog] = useState<Blog>();
+    const navigate = useNavigate();
 
     let token = null;
     if (localStorage.getItem("SignInToken") !== null) {
@@ -27,18 +28,24 @@ export const useBlog = ({ id } : { id : string }) => {
 
     
     useEffect(() => {
-        const fetchBlog = async () => {
-            setLoading(true)
-            const response = await axios.get(`${BACKEND_URL}/api/v1/blog/${id}` , {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            })
-            setBlog(response.data.message)
-            setLoading(false)
-        };
-        fetchBlog()
-    }, [])
+        const fetching = async () => {
+            setLoading(true);
+            try {
+                const response = await axios.get(`${BACKEND_URL}/api/v1/blog/${id}`, {
+                    headers : {
+                        Authorization : `Bearer ${token}`
+                    }
+                })
+                const fetchedBlog = response.data.message;
+                setBlog(fetchedBlog);
+                setLoading(false); 
+            } catch (e) {
+                alert(`You are not logged into ThoughtStream`)
+                navigate(`/signin`)
+            }
+        }
+        fetching()
+    }, [token, navigate])
 
     return {
         loading, 

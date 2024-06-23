@@ -1,7 +1,7 @@
 import axios from "axios"
 import { Appbar } from "../component/Appbar"
 import { BACKEND_URL } from "../config"
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 
@@ -15,6 +15,17 @@ export const Publish = () => {
         token = localStorage.getItem("SignInToken");
     } else {
         token = localStorage.getItem("SignUpToken");
+    }
+
+    useEffect(() => {
+        if (token === null) {
+            alert (`You are not logged into ThoughtStream especially in publishing section`);
+            navigate(`/signin`);
+        }
+    }, [token, navigate]);
+
+    if (token === null) {
+        return null;
     }
 
     const handleBlogPost = async () => {

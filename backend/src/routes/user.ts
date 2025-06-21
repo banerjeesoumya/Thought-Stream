@@ -108,7 +108,7 @@ userRouter.post('/signin', async (c) => {
         name: user.name
       })
     } catch (e) {
-      c.status(400);
+      c.status(500);
       return c.json({
         message : "Error while signing in"
       })

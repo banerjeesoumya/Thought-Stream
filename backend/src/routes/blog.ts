@@ -20,7 +20,7 @@ blogRouter.use("/*", async (c, next) => {
 
     if (scheme !== 'Bearer' || !token) {
         c.status(400);
-        return c.json({ message: "Unauthorized" });
+        return c.json({ message: "Hello Unauthorized" });
     }
 
     try {
